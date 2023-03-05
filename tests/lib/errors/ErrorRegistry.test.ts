@@ -3,23 +3,23 @@ import LocalError from '../../../src/lib/errors/LocalError';
 import ErrorClassFactory from '../../../src/lib/errors/ErrorClassFactory';
 
 describe('ErrorRegistry', () => {
-  const errorRegistry = ErrorRegistry.Create();
+  const errorRegistry = ErrorRegistry.getRegistry();
 
   afterEach(() => errorRegistry.clear());
 
   describe('#register', () => {
     test('A singleton instance of the ErrorRegistry can be created', () => {
-      const errorRegistry2 = ErrorRegistry.Create();
+      const errorRegistry2 = ErrorRegistry.getRegistry();
       expect(errorRegistry).toBe(errorRegistry2);
     });
 
     test('A "LocalError" can be registered to a category', () => {
-      const eReg = ErrorRegistry.Create();
+      const eReg = ErrorRegistry.getRegistry();
       eReg.register('test', LocalError);
     });
 
     test('I can register different error types to different categories', () => {
-      const eReg = ErrorRegistry.Create();
+      const eReg = ErrorRegistry.getRegistry();
       const errorClassFactory = new ErrorClassFactory();
       const LocalErrorFoo = errorClassFactory.createClass('LocalErrorFoo');
       const LocalErrorBar = errorClassFactory.createClass('LocalErrorBar');

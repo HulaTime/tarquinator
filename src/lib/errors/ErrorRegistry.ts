@@ -7,7 +7,7 @@ export default class ErrorRegistry {
 
   private static instance: ErrorRegistry;
 
-  static Create(): ErrorRegistry {
+  static getRegistry(): ErrorRegistry {
     if (ErrorRegistry.instance) {
       return ErrorRegistry.instance;
     }
