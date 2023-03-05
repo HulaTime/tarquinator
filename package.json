@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
+    "prebuild": "rm -r dist",
     "build": "tsc",
     "test": "jest"
   },
