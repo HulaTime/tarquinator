@@ -19,7 +19,7 @@ const errorResponseHandler: ErrorRequestHandler = (err, req, res, next) => {
   } else if (errorRegistry.isErrorInCategory(ERR_CATEGORIES.UNAUTHORIZED, err)) {
     res.status(401).json({ message: 'Unauthorized' });
   } else if (errorRegistry.isErrorInCategory(ERR_CATEGORIES.FORBIDDEN, err)) {
-    res.status(401).json({ message: 'Forbidden' });
+    res.status(403).json({ message: 'Forbidden' });
   } else if (errorRegistry.isErrorInCategory(ERR_CATEGORIES.CONFLICT, err)) {
     res.status(409).json({ message: 'Conflict' });
   } else {
